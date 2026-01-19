@@ -1,0 +1,41 @@
+{
+  "skill_name": "slack_design_style",
+  "version": "1.0",
+  "purpose": "Apply Slack-style visual and structural design to all outputs",
+  "inputs": {
+    "content_type": ["web", "report", "dashboard"],
+    "raw_content": "string"
+  },
+  "constraints": {
+    "colors": {
+      "primary": "#4A154B",
+      "accents": ["#36C5F0", "#2EB67D", "#ECB22E", "#E01E5A"],
+      "background": ["#FFFFFF", "#F8F8F8"]
+    },
+    "typography": {
+      "font_family": "system-sans",
+      "heading_weight": "600-700",
+      "body_weight": "400"
+    },
+    "layout": {
+      "spacing_unit": "8px",
+      "max_width": "1200px",
+      "structure": "card-based"
+    }
+  },
+  "rules": [
+    "One section equals one idea",
+    "Each visual requires a one-sentence insight",
+    "Prefer clarity over creativity",
+    "No mixed design languages"
+  ],
+  "validation": [
+    "Can be understood in 5 seconds",
+    "Low cognitive load",
+    "Calm and confident tone"
+  ],
+  "output": {
+    "format": ["markdown", "html", "json"],
+    "style_locked": true
+  }
+}
