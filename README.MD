@@ -1,92 +1,78 @@
-# Slack Model Design System & Agent Workflow
-> Version: 1.0 (Integrated)
-> Context: Unified reference for Agent behavior, Visual Design, and Reporting Standards.
+# Unified AI Design & Report Agent System
+
+## Purpose
+This repository defines a reusable, deterministic AI system for:
+- Unified Slack-style design (web + report)
+- Structured human–AI collaboration
+- Deterministic report generation (no randomness)
+
+This is NOT a demo.
+This is a working AI operating system for thinking, designing, and reporting.
 
 ---
 
-## Part 1: Collaboration Workflow (Agent Skill)
-*Defines how the Agent interacts with users to reach design decisions.*
+## Core Files Overview
 
-### Phase 1 – Exploration
-* **Trigger**: User asks open questions.
-* **Agent Action**: Provide references and possibilities, NOT conclusions.
-* **Goal**: Expand the problem space without locking in bad decisions.
+### 1. slack-style-design.md
+Single source of truth for visual and layout style.
+Used by all outputs: web, report, dashboard.
 
-### Phase 2 – Constraint
-* **Trigger**: User clarifies what is NOT wanted.
-* **Agent Action**: Reduce choices to exactly 2–3 distinct options.
-* **Goal**: Narrow down scope based on negatives (Constraint-based filtering).
+### 2. slack-style.prompt.md
+Model-agnostic prompt enforcing Slack design language.
+Can be injected into any AI or Agent runtime.
 
-### Phase 3 – Decision Support
-* **Rule**: No persuasion, no long text.
-* **Agent Action**: Report **differences only** (e.g., using comparison tables).
-* **Output**: High-signal, low-noise decision aids.
+### 3. design-collaboration-agent-skill.md
+Defines how humans and AI collaborate:
+- Exploration
+- Constraint
+- Decision
+- Extraction
 
-### Phase 4 – Template Extraction
-* **Action**: Convert finalized decisions into reusable rules.
-* **Output**: Generate `Markdown` (GitHub-ready) or `JSON` config.
+### 4. report-visual-elements.md
+Defines which charts and visuals are allowed and when.
 
-### Phase 5 – Agent Skill Ready
-* **Attributes**: Stateless, Copy-paste usable, Tool agnostic.
-
-### ⚠️ Failure Modes (FMEA)
-* **Risk**: Too many options → **Mitigation**: Strict limit to 2-3 choices.
-* **Risk**: Hidden progress → **Mitigation**: Externalize steps/roadmap when requested.
+### 5. report-generation-blueprint.md
+Defines deterministic report generation logic:
+- Report type
+- Chart selection
+- Layout rules
+- Insight rules
 
 ---
 
-## Part 2: Slack Style Design System
-*The "Single Source of Truth" for visual aesthetics.*
+## Agent Skills
 
-### Design Philosophy
-* **Focus first, decoration later**.
-* **Clear hierarchy**: Low cognitive load is the priority.
-* **Tone**: Calm but confident.
+Located in `/skills/`
 
-### Color System
-| Role | Hex Code | Usage |
-| :--- | :--- | :--- |
-| **Primary** | `#4A154B` | Slack Purple (Headers, Main Brand) |
-| **Accent 1** | `#36C5F0` | Blue (Info, Secondary Data) |
-| **Accent 2** | `#2EB67D` | Green (Success, Growth) |
-| **Accent 3** | `#ECB22E` | Yellow (Warning, Attention) |
-| **Accent 4** | `#E01E5A` | Red (Risk, Error) |
-| **Bg** | `#FFFFFF` | Cards, Content Areas |
-| **Divider** | `#E5E5E5` | Structure separation |
+- slack-design.agent.json
+- report-generator.agent.json
 
-### Typography
-* **Font Family**: Inter / SF Pro / System UI
-* **Hierarchy**:
-    * **Title**: Weight 600–700 (Bold/Semibold)
-    * **Body**: Weight 400 (Regular)
-    * **Meta**: Weight 400 (Small text)
-
-### Layout Rules
-* **Grid**: 12-column (Web) / 2-column (Report).
-* **Spacing**: 8px system.
-* **Components**: Cards must have rounded corners (6–8px) and soft shadows.
+These are machine-readable skills for AI orchestration.
 
 ---
 
-## Part 3: Report Visual Elements
-*Standardized components for generating data reports.*
+## Usage Order (IMPORTANT)
 
-### Core Charts Selection
-* **Line Chart**: Trends over time (Ops/Strategy).
-* **Bar Chart**: Comparison (Executive Summary).
-* **Radar Chart**: Capability balance (Strategy).
-* **Network Chart**: Relationship / Influence.
-* **Heatmap**: Intensity / Risk assessment.
+1. Read README.md
+2. Load slack-style-design.md
+3. Apply slack-style.prompt.md
+4. Follow design-collaboration-agent-skill.md
+5. Generate reports using report-generation-blueprint.md
+6. Enforce rules via Agent Skills
 
-### Report Layout Patterns
-* **One message per page/section**.
-* **Composition**: Chart on Left (or Top), Insight on Right (or Bottom).
-* **Aesthetics**:
-    * Use **one main color** per chart (derived from Color System).
-    * Minimal grid lines.
-    * Direct labels preferred over separate legends.
+---
 
-### Usage Guide by Audience
-* **Executive**: Bar Chart + Callout Numbers.
-* **Strategy**: Radar + Network Charts.
-* **Operations**: Line + Heatmap.
+## Design Principle
+
+- One message at a time
+- One page = one decision
+- Style is locked, content is free
+- Clarity over creativity
+
+---
+
+## This repo is designed for:
+- Long-term use
+- Multi-agent systems
+- Human + AI co-thinking
+- GitHub-first workflows
