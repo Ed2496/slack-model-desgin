@@ -1,0 +1,44 @@
+skill_name: slack_design_style
+version: "1.0"
+purpose: Apply Slack-style design system to outputs
+
+inputs:
+  content_type: [web, report, dashboard]
+  raw_content: string
+
+constraints:
+  colors:
+    primary: "#4A154B"
+    accents:
+      - "#36C5F0"
+      - "#2EB67D"
+      - "#ECB22E"
+      - "#E01E5A"
+    background:
+      - "#FFFFFF"
+      - "#F8F8F8"
+
+  typography:
+    font_family: system-sans
+    heading_weight: 600-700
+    body_weight: 400
+
+  layout:
+    spacing_unit: 8px
+    max_width: 1200px
+    structure: card-based
+
+rules:
+  - One section equals one idea
+  - Every visual has one insight sentence
+  - Clarity over creativity
+  - No mixed design systems
+
+validation:
+  - 5-second readability
+  - Low cognitive load
+  - Calm confidence
+
+output:
+  formats: [markdown, html, json]
+  style_locked: true
