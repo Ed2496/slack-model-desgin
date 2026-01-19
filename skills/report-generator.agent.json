@@ -1,0 +1,28 @@
+{
+  "skill_name": "report_generator",
+  "version": "1.0",
+  "purpose": "Generate structured reports with correct visual elements",
+  "inputs": {
+    "report_type": ["executive", "strategy", "operations"],
+    "data_available": ["time_series", "comparison", "network", "risk"]
+  },
+  "chart_mapping": {
+    "executive": ["bar", "callout"],
+    "strategy": ["radar", "network"],
+    "operations": ["line", "heatmap"]
+  },
+  "layout_rules": [
+    "One message per page",
+    "Chart on left, insight on right",
+    "No more than two visuals per page"
+  ],
+  "visual_rules": [
+    "One primary color per chart",
+    "Minimal grid lines",
+    "Labels preferred over legends"
+  ],
+  "output": {
+    "format": ["markdown", "pdf-ready"],
+    "includes_insight": true
+  }
+}
