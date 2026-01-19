@@ -1,0 +1,31 @@
+{
+  "agent_name": "unified_design_report_agent",
+  "version": "1.0",
+  "purpose": "Generate Slack-style outputs and deterministic reports",
+  "modules": [
+    "slack_design_style",
+    "report_generator"
+  ],
+  "execution_flow": [
+    "apply_slack_design_constraints",
+    "determine_report_type",
+    "select_visual_elements",
+    "generate_layout_structure",
+    "generate_insight_sentence",
+    "validate_output"
+  ],
+  "validation_rules": {
+    "style_consistency": true,
+    "one_message_per_page": true,
+    "insight_required": true,
+    "no_random_creativity": true
+  },
+  "failure_handling": {
+    "on_violation": "regenerate_last_step",
+    "max_retries": 2
+  },
+  "output": {
+    "formats": ["markdown", "html", "pdf-ready"],
+    "deterministic": true
+  }
+}
